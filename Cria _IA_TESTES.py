@@ -25,9 +25,9 @@ print(arquivos_csv)
 
 
 # In[1]:
+# teste para escrever em arquivos documentos
 
-
-# with open('teste.txt','w+') as file:
+# with open('teste.txt','w+') as file: 
 #     for i in range(10):
 #         file.write(str(i))
 # a = [i for i in range(10)]
@@ -99,7 +99,7 @@ print('Comprimento vetor de entrada: ',index_csv)
 # In[18]:
 
 
-# criar um algoritmo para randomizar os dados, pois 
+# criar um algoritmo para randomizar os dados, pois os resultados são melhores dessa forma, ela pode aprender ja com uma boa distribuição
 a=np.array(entrada) #(5,18)
 b=np.array(saida) #(5,7)
 print('matriz a:\n',a)
@@ -125,8 +125,8 @@ entrada1= tf.keras.utils.normalize(entrada_alt, axis =1) #criando o array normal
 saida=np.array(saida3).astype(float) #(5,7)
 # print("dimensões entrada:", entrada2.shape)
 print("dimensões saida:", saida.shape)
-neuronios=13 #(18+7)/2 =12.5
-camadas=2 #duas pois o trabalho não é muuuito complexo
+neuronios=13 #(18+7)/2 = 12.5
+camadas=2 #duas camadas pois o trabalho não é muuuito complexo
 
 
 classificador = Sequential()
@@ -137,12 +137,14 @@ classificador.add(Dense(units= index_arquivos, activation= 'sigmoid')) #saida co
 classificador.compile(optimizer ='adam', loss='binary_crossentropy',metrics=['accuracy'])
 
 
-epocas= 20
+epocas= 20 # quantidade de vezes que o sistema vai iterar sobre os elementos de teste
 
 
+###################ATENÇÃO######################
+###### COMENTAR UMA(1) DAS DUAS(2) PARTES ABAIXO, CASO CONTRARIO VAI RESULTAR EM ERRO
 # In[22]:
 
-
+#################### 1 ###########
 
 print("\n resultados e treino com entradas normalizadas:\n")
 hist=classificador.fit(entrada1,
@@ -156,7 +158,8 @@ hist=classificador.fit(entrada1,
 
 # In[20]:
 
-
+#################### 2 ###########
+'''
 print("\n resultados e treino com entradas normalizadas e randomizadas: \n")
 
 entrada3=np.matrix(entrada3).astype(float) 
@@ -168,13 +171,14 @@ hist=classificador.fit(entrada3,
                        verbose=1,
                        batch_size=10,
                        epochs=epocas+10)
-
+'''
 
 # In[14]:
 
 
 # https://keras.io/visualization/ 
-#  visualização com keras, acessando o conteudo do historico
+#  visualização com matplotlib, acessando o conteudo do historico do treinamento feito com keras
+
 import matplotlib.pyplot as plt
 
 print(hist.history, '\n conteudo do dictionary')
@@ -195,6 +199,12 @@ plt.xlabel('Epoch')
 plt.legend(['Train', 'Test'], loc='upper left')
 plt.show()
 
+
+
+
+##############outra forma de se visualizar os dados
+
+
 # val_ac=hist.history['val_acc']
 
 # print(preci)
@@ -209,9 +219,6 @@ plt.show()
 # print(aux.content())
 # historia=classificador.history['acc']
 # print(historia)
-
-
-# In[ ]:
 
 
 
