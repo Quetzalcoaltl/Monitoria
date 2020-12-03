@@ -1,0 +1,42 @@
+numpy
+	principal biblioteca para se realizar ciencia de dados,
+	- bem rapido, foi compilada em C
+	- é uma biblioteca de algebra linear
+funções:
+	- np.arrange
+	- np.linspace(primeiro, ultimo, passo)
+	- np.array(elementos do vetor)
+	- np.array([linha um], [linha dois],[linha tres])
+	- np.zeros(2), -- cria um vetor
+	- np.zeros((5,5))-- cria uma matriz 
+	- np.ones([1],[n]) 
+	- np.eye(n)
+	- np.random.rand(n) -- cria um vetor de n elementos com numeros aleatorios de 0 atée 1, para se poder colocar uns valores maiores só multiplicar
+	- np.random.rand(d1, d2...dn) -- cria matriz random de d1 linhas, d2 colunas
+	- np.random.ramdn(d1, d2...dn) -- mesma coisa, a diferença é que pega valores de uma distribuição normal com media 0 e desvio padrão 1
+	- np.random.randint(primeiro, ultimo, passo)
+	- np.round(array, n)>> np.round(np.random.array(5)*100, 0)
+	- array.reshape([d1, d2])
+metodo: não tem parenteses
+	- array.shape
+	- array.max()
+	- array.min()
+	- array.argmax()
+---------- 
+indexação:
+	- funciona da mesma forma que listas
+	- arr=np.random.rand(50)
+	- arr=np.arrange()
+		- arr[3, 20]
+		- arr2=arr[3,10]
+		- arr2[:] = 99
+		- arr tambem vai ter esses valores
+	- arr[a:b, c:d] >> pega uma fatia que vai das linhas a até b, e das colunas c até d
+	- eu posso trabalhar com o array de maneiras interessantes:
+		- arr> 30 vai retornar um array de true e false
+		- eu posso atribuir esse array a uma variavel, 
+			- bol= arr>30
+			- arr(bol) : vai retornar os valores aonde a variavel é maior que 30
+-----------------
+operação com arrays:
+	- voce pode fazer o que quiser de algebra com as arrays
